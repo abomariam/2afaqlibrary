@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cleanup',
     'storages',
+    'stdimage',
+
+    'bookstore',
+    'website',
 ]
 
 MIDDLEWARE = [
