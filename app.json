@@ -1,0 +1,36 @@
+{
+  "name": "afaqlibrary",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "DEBUG": {
+      "required": true
+    },
+    "SECRET_KEY": {
+      "required": true
+    },
+    "WEB_URL": {
+      "required": true
+    },
+    "S3_BUCKET": {
+      "required": true
+    },
+    "AWS_SECRET_KEY": {
+      "required": true
+    },
+    "AWS_ACCESS_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
