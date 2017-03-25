@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-25 19:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: website/templates/index.html:6 website/templates/index.html:58
+msgid "2afaq library"
+msgstr "مكتبة آفاق للاستعارة"
+
+#: website/templates/index.html:63 website/templates/index.html:71
+msgid "Home"
+msgstr "الرئيسية"
+
+#: website/templates/index.html:66 website/templates/index.html:74
+msgid "Cart"
+msgstr "عربة التسوق"
+
+#: website/templates/index.html:85 website/templates/index.html:91
+msgid "Search"
+msgstr "بحث"
+
+#: website/templates/index.html:89
+msgid "Book or Author name"
+msgstr "اسم الكتاب أو المؤلف"
+
+#: website/templates/index.html:104
+msgid "Categories"
+msgstr "التصنيفات"
+
+#: website/templates/index.html:122
+msgid "more"
+msgstr "المزيد"
+
+#~ msgid "Librarry for borrowing and reading in the place."
+#~ msgstr "مكتبة للاستعارة والقراءة في المكان"
