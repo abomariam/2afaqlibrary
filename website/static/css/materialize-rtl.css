@@ -1,0 +1,7 @@
+.breadcrumb:before {
+    content: '\E5CB';
+}
+
+.input-field label {
+    right: 0;
+}

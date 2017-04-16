@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<nav class=" teal lighten-2">
+    <div class="nav-wrapper container">
+        <a href="{% url 'home' %}" class="brand-logo">{% trans '2afaq library' %}</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+        <ul id="nav-mobile" class="{% if not LANGUAGE_BIDI %}right {% endif %}hide-on-med-and-down">
+            <li><a href="{% url 'home' %}"><i
+                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">home</i>{% trans 'Home' %}
+            </a></li>
+            <li><a href="#"><i
+                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">shopping_cart</i>{% trans 'Cart' %}
+            </a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="{% url 'home' %}"><i
+                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">home</i>{% trans 'Home' %}
+            </a></li>
+            <li><a href="#"><i
+                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">shopping_cart</i>{% trans 'Cart' %}
+            </a></li>
+        </ul>
+    </div>
+</nav>

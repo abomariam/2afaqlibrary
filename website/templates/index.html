@@ -1,83 +1,8 @@
-{% load static i18n %}
-{% load query_transform %}
-<!DOCTYPE html>
-<html lang="en" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
-<head>
-    <title>{% trans '2afaq library' %}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-    {#    {% if LANGUAGE_BIDI %}#}
-    {#        <link rel="stylesheet" href="{% static 'css/materialize-rtl.min.css' %}">#}
-    {#    {% endif %}#}
-    {#    <style>#}
-    {#        /* Remove the navbar's default rounded borders and increase the bottom margin */#}
-    {#        .navbar {#}
-    {#            margin-bottom: 50px;#}
-    {#            border-radius: 0;#}
-    {#        }#}
-    {##}
-    {#        /* Remove the jumbotron's default bottom margin */#}
-    {#        .jumbotron {#}
-    {#            margin-bottom: 0;#}
-    {#        }#}
-    {##}
-    {#        /* Add a gray background color and some padding to the footer */#}
-    {#        footer {#}
-    {#            background-color: #f2f2f2;#}
-    {#            padding: 25px;#}
-    {#        }#}
-    {##}
-    {#        .panel-heading > a {#}
-    {#            color: #31708f;#}
-    {#            text-decoration: None;#}
-    {#        }#}
-    {#    </style>#}
-
-    {% if LANGUAGE_BIDI %}
-        <style>
-            .input-field label {
-                right: 0;
-            }
-        </style>
-    {% endif %}
-</head>
-<body>
-
-{#<div class="jumbotron">#}
-{#    <div class="container text-center">#}
-{#        <h1>{% trans '2afaq library' %}</h1>#}
-{#        <p>{% trans 'Librarry for borrowing and reading in the place.' %}</p>#}
-{#    </div>#}
-{#</div>#}
+{% extends 'base.html' %}
+{% load i18n %}
 
 
-<nav class=" teal lighten-2">
-    <div class="nav-wrapper container">
-        <a href="{% url 'home' %}" class="brand-logo">{% trans '2afaq library' %}</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-
-        <ul id="nav-mobile" class="{% if not LANGUAGE_BIDI %}right {% endif %}hide-on-med-and-down">
-            <li><a href="{% url 'home' %}"><i
-                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">home</i>{% trans 'Home' %}
-            </a></li>
-            <li><a href="#"><i
-                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">shopping_cart</i>{% trans 'Cart' %}
-            </a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-            <li><a href="{% url 'home' %}"><i
-                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">home</i>{% trans 'Home' %}
-            </a></li>
-            <li><a href="#"><i
-                    class="material-icons {% if LANGUAGE_BIDI %}right{% else %}left{% endif %}">shopping_cart</i>{% trans 'Cart' %}
-            </a></li>
-        </ul>
-    </div>
-</nav>
-
-
+{% block main_content %}
 <div class="row">
     <form class="col offset-s3 s6 ">
         <div class="row">
@@ -102,77 +27,34 @@
     <div class="collection">
         <div class="collection with-header col s3 {% if LANGUAGE_BIDI %}right{% endif %}">
             <span class="collection-header"><h4 class="teal-text text-darken-2">{% trans 'Categories' %}</h4></span>
+            <a href="{% url 'home' %}" class="collection-item">{% trans 'All' %}</a>
             {% for cat in cats %}
-                <a href="?{% query_transform request cat=cat.id %}" class="collection-item">{{ cat.name }}</a>
+                <a href="{% url 'cat' cat.id %}" class="collection-item">{{ cat.name }}</a>
             {% endfor %}
         </div>
 
         <div class="col s12 m9">
-        {% for book in books %}
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ book.image.thumbnail.url }}">
+            {% for book in books %}
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ book.image.thumbnail.url }}">
 
-            </div>
-            <div class="card-content">
-                <span class="card-title">{{ book.title }}</span>
-              <p>{{ book.excerpt }}</p>
-            </div>
-            <div class="card-action">
-              <a href="#" class="teal-text text-darken-2">{% trans 'more' %}</a>
-            </div>
-          </div>
-        </div>
-    {% endfor %}
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ book.title }}</span>
+                            <p>{{ book.excerpt }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'book-detail' book.pk %}"
+                               class="teal-text text-darken-2">{% trans 'more' %}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
 
-
 </div>
-
-
-
-
-        <footer class="page-footer teal lighten-2">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container center">
-            Coding4all.com © {% now 'Y' %}
-            </div>
-          </div>
-        </footer>
-
-
-
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/materialize.min.js' %}"></script>
-{#{% if LANGUAGE_BIDI %}#}
-{#    <script src="{% static 'js/materialize-rtl.min.js' %}"></script>#}
-{#{% endif %}#}
-<script>
-    $(document).ready(function () {
-
-        $(".button-collapse").sideNav();
-
-    })
-</script>
-</body>
-</html>
+{% endblock %}

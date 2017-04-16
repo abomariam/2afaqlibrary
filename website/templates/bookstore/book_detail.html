@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block main_content %}
+    <br>
+    <div class="row">
+        <nav class="teal lighten-2">
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="{% url 'home' %}" class="breadcrumb">{% trans 'home' %}</a>
+                    <a href="{% url 'cat' object.category.pk %}" class="breadcrumb">{{ object.category.name }}</a>
+                    <a href="{% url 'book-detail' object.pk %}" class="breadcrumb">{{ object.title }}</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col s12">
+
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="{{ object.image.url }}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3 class="header">{{ object.title }}</h3>
+                        <div><i class="material-icons prefix">person</i> {{ object.author.name }}</div>
+                        <p>{{ object.description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="">{% trans 'price' %}: {{ object.price }} {% trans 'EGP' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

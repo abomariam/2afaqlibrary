@@ -25,4 +25,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^', include('website.urls')),
+    prefix_default_language=False
 )

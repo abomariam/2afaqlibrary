@@ -1,0 +1,66 @@
+{% load static i18n %}
+{% load query_transform %}
+<!DOCTYPE html>
+<html lang="en" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>{% trans '2afaq library' %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+
+    {% if LANGUAGE_BIDI %}
+        <link rel="stylesheet" href="{% static 'css/materialize-rtl.css' %}">
+    {% endif %}
+</head>
+<body>
+
+    {% include '_partials/_nav.html' %}
+
+
+
+    {% block main_content %}{% endblock %}
+
+
+
+<footer class="page-footer teal lighten-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                    content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            Coding4all.com © {% now 'Y' %}
+        </div>
+    </div>
+</footer>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+{#{% if LANGUAGE_BIDI %}#}
+{#    <script src="{% static 'js/materialize-rtl.min.js' %}"></script>#}
+{#{% endif %}#}
+<script>
+    $(document).ready(function () {
+
+        $(".button-collapse").sideNav();
+
+    })
+</script>
+</body>
+</html>
